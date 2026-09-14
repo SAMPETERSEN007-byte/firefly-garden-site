@@ -41,8 +41,11 @@ reasoning before it ships. You never have to guess.</p>
 <h2>Common questions</h2>
 
 <h3>Is my progress saved? Where?</h3>
-<p>Yes, automatically, on your device. It is not in the cloud and not tied to an account,
-so it does not follow you to a new phone — and deleting the app deletes it.</p>
+<p>Yes, automatically, on your device. It is not tied to an account and the game never
+uploads it. On iOS the save is kept out of iCloud backups, so restoring from iCloud on a new
+phone does not bring it back. On Android, the phone's automatic Google backup can include it
+and restore it when you set up a new phone or reinstall the game. Deleting the app deletes it
+from your device.</p>
 
 <h3>The game said my progress was reset.</h3>
 <p>Saved data is checked when the app opens. If it is damaged — an interrupted write, a
@@ -51,9 +54,11 @@ Settings and separate modes are preserved where possible. If this happens repeat
 please email me; that is a bug, not normal.</p>
 
 <h3>I am stuck.</h3>
-<p>Use <strong>Hint</strong>. It points at a square you can work out right now from what is
-already on the board, rather than revealing the answer. <strong>Undo</strong> steps back one
-move and <strong>Restart</strong> clears the clearing.</p>
+<p>Use <strong>Hint</strong>. If a firefly you placed is not part of the solution, it asks you
+to remove that one first. Otherwise it points at a square that must hold a firefly: one a
+numbered stone forces if there is one, then the only firefly that can light a dark square,
+and if neither applies, simply where the next firefly goes. <strong>Undo</strong> steps back
+one move and <strong>Restart</strong> clears the clearing.</p>
 
 <h3>When does Daily Glow unlock?</h3>
 <p>After you restore five gardens. It is one new puzzle each day, the same one for
@@ -62,8 +67,9 @@ everyone, and finishing it on consecutive days builds a streak.</p>
 <h3>What is Endless Night?</h3>
 <p>It opens once you finish Moonbell Hollow, the first world. It builds fresh clearings
 on the spot at four depths — Drift, Dusk, Deep Night and Starless — and never runs out.
-The number beside each depth is how far the reasoning goes: 1–2 is pure deduction, 3
-needs one supposition, 4 needs two, 5 needs three.</p>
+Each depth is marked with a difficulty from Easy to Expert, which says how far its reasoning
+is built to go: Easy (Drift) is pure deduction, Medium (Dusk) needs one supposition, Hard
+(Deep Night) needs two, and Expert (Starless) needs three.</p>
 
 <h3>Can I turn off the sound, or the movement?</h3>
 <p>Yes. <strong>Settings</strong> has Sound, Haptics and Reduced Motion. Reduced Motion
@@ -71,7 +77,15 @@ shortens or removes animation throughout, and the app also follows your system-w
 reduce-motion setting.</p>
 
 <h3>Does it need the internet?</h3>
-<p>No. Firefly Garden works entirely offline and makes no network requests at all.</p>
+<p>No. Firefly Garden plays completely offline. If you choose to share anonymous usage,
+those events are sent when a connection is available.</p>
+
+<h3>What does 'Share anonymous usage' do?</h3>
+<p>It lets the game send anonymous play stats, such as which levels you start and finish, how
+many moves and seconds they take, and when you use a hint, to PostHog, the analytics service
+I use. It stays off until you say yes, either when the game asks right after the practice or
+in <strong>Settings</strong>, and you can switch it off there at any time. The
+<a href="privacy.html">privacy policy</a> lists everything it sends.</p>
 
 <h3>Is there anything to buy?</h3>
 <p>No. There are no purchases, no advertising, and no subscription.</p>
