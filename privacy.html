@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — Firefly Garden</title>
-<meta name="description" content="What Firefly Garden keeps on your device, the anonymous play stats it shares only if you agree, who receives them, and how to switch sharing off.">
+<meta name="description" content="What Firefly Garden keeps on your device, the anonymous play stats it shares, when it asks first, who receives them, and how to switch sharing off.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,36 +13,56 @@
 
 <header>
   <p class="kicker">Privacy Policy</p>
-  <h1>Nothing is shared unless you say yes.</h1>
-  <p class="lede">No account. No advertising. No tracking across apps or websites. If you
-  agree, Firefly Garden sends anonymous play stats, such as which level you finished and how
-  many moves it took, so I can make the game better. If you do not, it sends nothing.</p>
-  <p class="stamp">Effective 14 September 2026 · applies to Firefly Garden 1.0 (build 4) and later</p>
+  <h1>Anonymous play stats, and a switch to turn them off.</h1>
+  <p class="lede">No account. No advertising. No tracking across apps or websites. Firefly
+  Garden can send anonymous play stats, such as which level you finished and how many moves it
+  took, so I can make the game better. If your phone is set to a region in the EU, the EEA or
+  the UK, the game asks first and sends nothing unless you say yes. On phones set to any other
+  region, sharing is on from the start, and one switch in Settings turns it off.</p>
+  <p class="stamp">Effective 14 September 2026 · applies to Firefly Garden 1.0 (build 5) and later</p>
 </header>
 
 <div class="panel">
   <p><strong>The short version.</strong> Your progress and settings stay on your device.
-  The first time you play, the game asks once whether you want to share anonymous usage.
-  If you say yes, it sends events such as which level you finished, in how many moves and
-  seconds, to PostHog, the analytics service I use. They are filed under a random ID that is
-  not linked to your name, your email address or any account. You can switch sharing off in
-  Settings at any time, and it stops straight away.</p>
+  While sharing is on, the game sends events such as which level you finished, in how many
+  moves and seconds, to PostHog, the analytics service I use. They are filed under a random ID
+  that is not linked to your name, your email address or any account. Phones set to a region
+  in the EU, the EEA or the UK are asked first; phones set to any other region start with
+  sharing on. Either way, the <strong>Share anonymous usage</strong> switch in Settings turns
+  it off, and it stops straight away.</p>
 </div>
 
 <h2>What changed</h2>
 <p>This page used to say Firefly Garden collects nothing. That was true until build 3, which
-added PostHog product analytics and had it switched on by default. Build 4 changes that, and
-this version of the policy describes it:</p>
+added PostHog product analytics and had it switched on by default for everyone. Build 4, a
+test build that was never released publicly, asked everyone first. Build 5, which this version
+of the policy describes, asks first where your phone's region is set to the EU, the EEA or the
+UK, and starts with sharing on for phones set to any other region, with a switch in Settings
+to turn it off.</p>
+
+<h2>When the game asks first</h2>
+<p>It depends on the region your phone is set to, not on where you are. On iPhone that is
+<em>Settings → General → Language &amp; Region → Region</em>; on Android it is usually the
+country of the first language in your language settings. The game never uses GPS and never
+looks up your location.</p>
 <ul>
-  <li><strong>Sharing is now opt-in.</strong> Until you agree, the analytics SDK is not even
-  started, so nothing is sent.</li>
-  <li>The first time you play, right after the short three-step practice, the game asks you
-  once. Either answer starts the game. If you never answer, for example because you leave the
-  practice early, sharing stays off.</li>
-  <li>If you played an earlier build, sharing starts off in build 4 until you switch it on.</li>
-  <li>You can change your answer any time in <strong>Settings</strong>, under
+  <li><strong>The European Union, Iceland, Liechtenstein, Norway or the United Kingdom.</strong>
+  The first time you play, right after the short three-step practice, the game asks once
+  whether you want to share anonymous play stats. Either answer starts the game. Nothing is sent
+  unless you say yes, and if you never answer, for example because you leave the practice early,
+  sharing stays off. A phone that reports no region at all is treated the same way.</li>
+  <li><strong>Any other region.</strong> Sharing is on from the start and the game does not
+  ask. You can switch it off at any time in <strong>Settings</strong>, under
   <strong>Share anonymous usage</strong>.</li>
 </ul>
+<p>Once this is settled, by your answer, by the switch, or by sharing starting on, it stays with
+the app on that phone: changing your phone's region later does not ask again or change it.
+Until it is settled, the game applies the rule again each time it opens.</p>
+<p>If you played an earlier build, a choice you made in build 4, by answering its question or
+using the switch, is kept. Any other earlier save is settled by the same rule the first time
+build 5 opens. On phones set to a region outside the EU, the EEA and the UK, that switches
+sharing on, even if you had turned it off in build 3, because build 3 did not record that as a
+choice. Inside them, sharing stays off unless you say yes.</p>
 
 <h2>What stays on your device</h2>
 <ul>
@@ -57,8 +77,9 @@ such as moves and seconds, never the board or the moves themselves. On iOS this 
 out of iCloud backups. On Android, the phone's automatic Google backup can include it.
 Deleting the app deletes it from your device.</p>
 
-<h2>What is shared, and only if you say yes</h2>
-<p>While sharing is on, the game sends these events as you play:</p>
+<h2>What is shared while sharing is on</h2>
+<p>When sharing is off, nothing is sent, and the analytics SDK is not even started unless
+sharing is on. While it is on, the game sends these events as you play:</p>
 <ul>
   <li><code>level_started</code>: the mode, world and level, its difficulty, and whether it is a replay.</li>
   <li><code>level_completed</code>: the mode, world and level, moves, seconds, hints used, and whether it was a replay.</li>
@@ -139,15 +160,20 @@ from your device.</p>
 <a href="mailto:sampetersen007@gmail.com">sampetersen007@gmail.com</a>.</p>
 
 <h2>Changing your mind</h2>
-<p>Open <strong>Settings</strong> and use the <strong>Share anonymous usage</strong> switch.
-Turning it on starts sharing. Turning it off stops it at once: the game sends one last event,
-<code>analytics_disabled</code>, so I can count how many people opt out, and then nothing more.</p>
+<p>Open <strong>Settings</strong> and use the <strong>Share anonymous usage</strong> switch; it
+works the same in every region. Turning it on starts sharing. Turning it off stops it at once:
+the game sends two last events, <code>settings_changed</code> recording that you switched it
+off and then <code>analytics_disabled</code>, so I can count how many people opt out, and after
+that nothing more. Once you have used the switch, changing your phone's region does not change
+it.</p>
 
 <h2>Children</h2>
-<p>Firefly Garden is a quiet logic puzzle suitable for any age. It never asks anyone for a
-name, age, or email address. Anonymous usage is shared only if the player says yes and carries
-no name or contact details, and I use it only to maintain and improve the game, never for
-advertising or profiling.</p>
+<p>Firefly Garden is a quiet logic puzzle suitable for any age. It never asks anyone for their
+age, name or email address. On phones set to a region in the EU, the EEA or the UK, anonymous
+usage is shared only if the player says yes; on phones set to any other region, it is shared by
+default for players of any age, until the switch in Settings turns it off. Either way it carries
+no name, contact details or advertising identifier, and I use it only to maintain and improve
+the game, never for advertising or profiling.</p>
 
 <h2>What the app stores do see</h2>
 <p>Apple and Google run the stores the app is distributed through, and they report
