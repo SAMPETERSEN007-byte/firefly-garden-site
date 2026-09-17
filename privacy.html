@@ -135,10 +135,10 @@ machine-learning models, once that data has been aggregated or de-identified so 
 reasonably be used to identify anyone. It does not let other companies train models on it.</p>
 
 <h2>Game Center leaderboards</h2>
-<p>Firefly Garden has two leaderboards, for the longest Daily Glow streak and the most Endless
-Night clearings lit. They run on <strong>Apple's Game Center</strong>. If you sign in to Game
-Center when the game offers it, your streak and your nights-lit count are sent to Apple to place
-on those boards under your Game Center name; if you decline, nothing is sent and the game plays
+<p>Firefly Garden has two leaderboards, for the Daily Glow streak you are on now and the most
+glow earned in Endless Night. They run on <strong>Apple's Game Center</strong>. If you sign in
+to Game Center when the game offers it, your current streak and your glow are sent to Apple to
+place on those boards under your Game Center name; if you decline, nothing is sent and the game plays
 exactly the same. Apple, not I, holds Game Center accounts and scores, and
 <a href="https://www.apple.com/legal/privacy/data/en/game-center/">Apple's Game Center privacy
 terms</a> apply to them. No leaderboard data passes through any server of mine.</p>
@@ -154,6 +154,13 @@ terms</a> apply to them. No leaderboard data passes through any server of mine.<
   tracking.</li>
   <li><strong>No location, contacts, photos, microphone, or camera.</strong> The app never
   asks for these permissions because it never uses them.</li>
+  <li><strong>Nothing from the reminder.</strong> The game asks once whether it may send
+  notifications, after the short tutorial. If you allow it, it schedules a reminder on your
+  own phone for the last hour of the day, so a Daily Glow streak is not lost by forgetting;
+  a switch in Settings turns it off. These are local notifications: they are written by the
+  app to your phone's own scheduler, there is no push token, no server of mine is involved,
+  and nothing about them is sent anywhere. Saying no, or turning them off later, changes
+  nothing else about the game.</li>
   <li><strong>Not your board or your moves.</strong> The board and your move history never
   leave your device; events carry only counts such as moves and seconds.</li>
 </ul>
