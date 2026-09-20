@@ -13,13 +13,11 @@
 
 <header>
   <p class="kicker">Privacy Policy</p>
-  <h1>Anonymous play stats, and a switch to turn them off.</h1>
-  <p class="lede">No account. No advertising. No tracking across apps or websites. Firefly
-  Garden can send anonymous play stats, such as which level you finished and how many moves it
-  took, so I can make the game better. If your phone is set to a region in the EU, the EEA or
-  the UK, the game asks first and sends nothing unless you say yes. On phones set to any other
-  region, sharing is on from the start, and one switch in Settings turns it off.</p>
-  <p class="stamp">Effective 14 September 2026 · applies to Firefly Garden 1.0 (build 5) and later</p>
+  <h1>Your garden, your data, your choices.</h1>
+  <p class="lede">Your progress stays on your device, and no Firefly Garden account is required.
+  The game uses PostHog for usage analytics, with a sharing switch in Settings. Version 1.1
+  adds Google AdMob ads and optional purchases through Apple or Google.</p>
+  <p class="stamp">Effective 20 September 2026 · covers version 1.0 (build 5 onward) and version 1.1 on iOS and Android</p>
 </header>
 
 <div class="panel">
@@ -32,19 +30,45 @@
   it off, and it stops straight away.</p>
 </div>
 
-<h2>What changed</h2>
-<p>This page used to say Firefly Garden collects nothing. That was true until build 3, which
-added PostHog product analytics and had it switched on by default for everyone. Build 4, a
-test build that was never released publicly, asked everyone first. Build 5, which this version
-of the policy describes, asks first where your phone's region is set to the EU, the EEA or the
-UK, and starts with sharing on for phones set to any other region, with a switch in Settings
-to turn it off.</p>
+<h2>Ads and purchases in version 1.1</h2>
+<p>Version 1.0 has no advertising or in-app purchases. Version 1.1 includes ads between some
+levels, rewarded ads for hints, an optional Remove Ads purchase, and optional tips. Test builds
+may show Google's test ads. The ad SDK still connects to Google in those builds.</p>
+<p><strong>Google AdMob:</strong> Google's Mobile Ads SDK can collect and share your IP address
+(which can estimate approximate location), app and ad interactions, diagnostic information,
+and device identifiers such as the advertising ID and app set ID. Google uses this information
+for advertising, measurement, and fraud prevention. This is separate from PostHog usage
+analytics. Turning off <strong>Share anonymous usage</strong> stops PostHog events; it does
+not disable Google's ad SDK or its data collection.</p>
+<p>The app uses Google's consent form where required before requesting ads. Where available,
+<strong>Settings → Ad privacy choices</strong> lets you revisit those choices. On iOS, the app
+also asks for tracking permission; declining does not block the game. On Android, advertising-ID
+controls are in your device settings. The game does not request GPS location permission.
+Google's SDK sends its data using HTTPS/TLS. See
+<a href="https://policies.google.com/privacy">Google's Privacy Policy</a>,
+<a href="https://policies.google.com/technologies/ads">Google's advertising information</a>, and
+<a href="https://developers.google.com/admob/android/privacy/play-data-disclosure">Google's SDK data disclosures</a>
+for Google's processing and controls. Google controls the retention of data it receives;
+removing this app does not itself delete data already held by Google.</p>
+<p><strong>Purchases:</strong> Apple App Store or Google Play processes payment. The app receives
+product and transaction information needed to finish a purchase and restore ownership, and
+keeps an ad-removal status on your device. I do not receive your payment-card details through
+the app. Store purchase records and billing-account data are handled under
+<a href="https://www.apple.com/legal/privacy/">Apple's</a> or
+<a href="https://policies.google.com/privacy">Google's</a> privacy policy. There is no developer
+purchase server. Removing ads changes the ads shown; it is not a promise that Google's SDK
+never initializes or receives data.</p>
+
+<h2>Usage analytics in both versions</h2>
+<p>The remaining usage-sharing descriptions concern PostHog analytics, not advertising.
+PostHog was added in build 3. From version 1.0 build 5 onward, the game asks first when your
+phone's region is set to the EU, EEA or UK, and starts with sharing on in other regions, with
+a switch in Settings to turn it off.</p>
 
 <h2>When the game asks first</h2>
 <p>It depends on the region your phone is set to, not on where you are. On iPhone that is
 <em>Settings → General → Language &amp; Region → Region</em>; on Android it is usually the
-country of the first language in your language settings. The game never uses GPS and never
-looks up your location.</p>
+country of the first language in your language settings. The game never uses GPS. This phone-region check is for analytics; in version 1.1, Google may estimate approximate location from your IP address as described above.</p>
 <ul>
   <li><strong>The European Union, Iceland, Liechtenstein, Norway or the United Kingdom.</strong>
   The first time you play, right after the short three-step practice, the game asks once
@@ -134,7 +158,7 @@ than bury: PostHog's terms let it use customer data to develop its own products 
 machine-learning models, once that data has been aggregated or de-identified so that it cannot
 reasonably be used to identify anyone. It does not let other companies train models on it.</p>
 
-<h2>Game Center leaderboards</h2>
+<h2>Game Center leaderboards on iOS</h2>
 <p>Firefly Garden has two leaderboards, for the Daily Glow streak you are on now and the most
 glow earned in Endless Night. They run on <strong>Apple's Game Center</strong>. If you sign in
 to Game Center when the game offers it, your current streak and your glow are sent to Apple to
@@ -146,14 +170,12 @@ terms</a> apply to them. No leaderboard data passes through any server of mine.<
 <h2>What is never collected</h2>
 <ul>
   <li><strong>No account of mine.</strong> There is no sign-up, no login, no name, and no email address. Game Center sign-in is optional and is Apple's, as above.</li>
-  <li><strong>No advertising and no tracking.</strong> There are no ads, no use of the
-  advertising identifier, no App Tracking Transparency prompt, and no tracking across other
-  apps or websites.</li>
-  <li><strong>No session replay, autocapture, or crash tracking.</strong> Nothing records your
-  screen, taps and screens are not captured automatically, and the app has no crash or error
-  tracking.</li>
-  <li><strong>No location, contacts, photos, microphone, or camera.</strong> The app never
-  asks for these permissions because it never uses them.</li>
+  <li><strong>No screen recording or session replay.</strong> PostHog autocapture and session
+  replay are disabled. Version 1.1's ad SDK does collect ad interactions and diagnostics as
+  described above.</li>
+  <li><strong>No GPS, contacts, photos, microphone, or camera access.</strong> The app does not
+  request these permissions. This does not prevent approximate location inferred by Google's
+  ad SDK from an IP address.</li>
   <li><strong>Nothing from the reminder.</strong> The game asks once whether it may send
   notifications, after the short tutorial. If you allow it, it schedules a reminder on your
   own phone for the last hour of the day, so a Daily Glow streak is not lost by forgetting;
@@ -165,7 +187,7 @@ terms</a> apply to them. No leaderboard data passes through any server of mine.<
   leave your device; events carry only counts such as moves and seconds.</li>
 </ul>
 
-<h2>How long events are kept, and deleting them</h2>
+<h2>How long PostHog events are kept, and deleting them</h2>
 <p>Events are kept only so I can maintain and improve the game, and they are used for nothing
 else.</p>
 <p>Because an event carries a random ID rather than anything that names you, I cannot find one
@@ -175,7 +197,7 @@ from your device.</p>
 <p>For questions about this data, or to ask for it to be deleted, email
 <a href="mailto:sampetersen007@gmail.com">sampetersen007@gmail.com</a>.</p>
 
-<h2>Changing your mind</h2>
+<h2>Changing your analytics choice</h2>
 <p>Open <strong>Settings</strong> and use the <strong>Share anonymous usage</strong> switch; it
 works the same in every region. Turning it on starts sharing. Turning it off stops it at once:
 the game sends two last events, <code>settings_changed</code> recording that you switched it
@@ -184,12 +206,10 @@ that nothing more. Once you have used the switch, changing your phone's region d
 it.</p>
 
 <h2>Children</h2>
-<p>Firefly Garden is a quiet logic puzzle suitable for any age. It never asks anyone for their
-age, name or email address. On phones set to a region in the EU, the EEA or the UK, anonymous
-usage is shared only if the player says yes; on phones set to any other region, it is shared by
-default for players of any age, until the switch in Settings turns it off. Either way it carries
-no name, contact details or advertising identifier, and I use it only to maintain and improve
-the game, never for advertising or profiling.</p>
+<p>The game does not ask for a player's age, name, or email address. Its analytics choices are
+based on device region, not age, and version 1.1 includes the advertising practices described
+above. A parent or guardian with a question about a child's data can contact
+<a href="mailto:sampetersen007@gmail.com">sampetersen007@gmail.com</a>.</p>
 
 <h2>What the app stores do see</h2>
 <p>Apple and Google run the stores the app is distributed through, and they report
