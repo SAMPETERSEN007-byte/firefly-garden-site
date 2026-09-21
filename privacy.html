@@ -205,10 +205,21 @@ off and then <code>analytics_disabled</code>, so I can count how many people opt
 that nothing more. Once you have used the switch, changing your phone's region does not change
 it.</p>
 
-<h2>Children</h2>
-<p>The game does not ask for a player's age, name, or email address. Its analytics choices are
-based on device region, not age, and version 1.1 includes the advertising practices described
-above. A parent or guardian with a question about a child's data can contact
+<h2>Age ranges and children on Android</h2>
+<p>The upcoming Android release asks for an age range before the game starts. It stores only
+that range on the device, not a birth date or exact age. Every age range can play the game.</p>
+<p>For players under 18, or whose age is not yet known, PostHog usage analytics is disabled
+and the usage-sharing switch is not offered. The ad SDK is configured for child treatment,
+non-personalized ads, and general-audience ad content. The age-treatment signal is sent to
+Google; a child's age range is not sent to PostHog.</p>
+<p>For adults, when usage sharing is enabled as described above, the selected age range
+(such as 25–34) accompanies usage events as <code>age_band</code>. This helps me understand
+the adult audience. It is associated with the same random installation ID as those events;
+it is not an anonymous count of every player. Turning usage sharing off also stops this
+age-range reporting. No extra age-collection permission prompt is shown.</p>
+<p>These Android provisions override the general usage-sharing descriptions above for
+under-18 players. The submitted iOS version 1.0 does not ask for age and is unchanged by
+this Android update. A parent or guardian with a question about data can contact
 <a href="mailto:sampetersen007@gmail.com">sampetersen007@gmail.com</a>.</p>
 
 <h2>What the app stores do see</h2>
