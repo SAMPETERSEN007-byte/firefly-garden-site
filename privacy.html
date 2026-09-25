@@ -17,7 +17,7 @@
   <p class="lede">Your progress stays on your device, and no Firefly Garden account is required.
   The game uses PostHog for usage analytics, with a sharing switch in Settings. Version 1.1
   adds Google AdMob ads and optional purchases through Apple or Google.</p>
-  <p class="stamp">Effective 23 September 2026 · covers version 1.0 (build 5 onward) and version 1.1 on iOS and Android</p>
+  <p class="stamp">Effective 25 September 2026 · covers version 1.0 (build 5 onward) and version 1.1 on iOS and Android</p>
 </header>
 
 <div class="panel">
@@ -61,6 +61,16 @@ never initializes or receives data.</p>
 
 <p>You can report an inappropriate advertisement through <strong>Settings → Report an ad</strong>. This opens your email app; nothing is sent until you choose to send it.</p>
 
+<h2>Checking the date for the Daily Glow</h2>
+<p>Everyone gets the same Daily Glow on the same day, so from version 1.1 build 18 the game
+checks the date online instead of trusting the phone's clock. Once the Daily Glow is open to
+you, the game asks for the current time with an ordinary web request to
+<code>www.apple.com</code>, <code>www.google.com</code> and <code>one.one.one.one</code>
+(Cloudflare) at the same time, and uses the first answer. The request carries no identifier,
+no account and nothing about your game. Like any web request, it reaches those companies with
+your device's IP address. The game keeps only the time it got back, on your device, and the
+check happens whether or not usage sharing is on.</p>
+
 <h2>Usage analytics in both versions</h2>
 <p>The remaining usage-sharing descriptions concern PostHog analytics, not advertising.
 PostHog was added in build 3. From version 1.0 build 5 onward, the game asks first when your
@@ -96,6 +106,7 @@ choice. Inside them, sharing stays off unless you say yes.</p>
   <li>The board you are part-way through, so you can close the app and come back to it.</li>
   <li>Your Daily Glow history and streak, and your Endless Night progress.</li>
   <li>Your settings: sound, haptics, reduced motion, and whether you share anonymous usage.</li>
+  <li>The time from the last Daily Glow date check, so the date is still known offline.</li>
 </ul>
 <p>This is stored using the operating system's ordinary app storage. It is not readable by
 other apps, and the game never sends it anywhere: the events described below report counts
@@ -145,8 +156,8 @@ look up a location from it, and I do not use it to identify anyone.</p>
 
 <h2>Who receives it</h2>
 <p><strong>PostHog, Inc.</strong>, the product analytics service I use, is the only company
-the game sends anything to. Events go to PostHog's US cloud at <code>us.i.posthog.com</code>
-and are stored in the United States.</p>
+the game sends usage events to. Events go to PostHog's US cloud at <code>us.i.posthog.com</code>
+and are stored in the United States. Ads and the Daily Glow's date check are described above.</p>
 <p>PostHog handles this data for me as a service provider. Under the U.S. privacy-law
 addendum in its <a href="https://posthog.com/privacy">privacy policy</a>, which applies as soon
 as it starts processing data for me, PostHog may use or disclose that personal information
