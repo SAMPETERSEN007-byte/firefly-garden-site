@@ -50,6 +50,18 @@ Google's SDK sends its data using HTTPS/TLS. See
 <a href="https://developers.google.com/admob/ios/privacy/data-disclosure">Google's iOS SDK data disclosures</a> and <a href="https://developers.google.com/admob/android/privacy/play-data-disclosure">Android SDK data disclosures</a>
 for Google's processing and controls. Google controls the retention of data it receives;
 removing this app does not itself delete data already held by Google.</p>
+<p><strong>Google Analytics for Firebase (install measurement):</strong> From the next version,
+the game includes Google's Firebase SDK so that installs can be matched to the ads that led to
+them. It is off when the app starts and only turns on for players who chose an adult age range
+<em>and</em> have <strong>Share usage statistics</strong> on; for players under 18 or whose age
+is not known it never turns on, and turning the switch off turns it off again. While on, it sends
+Google an app-instance ID, the app version, device and OS type, first-open and session events,
+and your IP address (which can estimate approximate location). In the EU, the EEA and the UK,
+your agreement covers usage measurement only: advertising consent stays off, so the data is not
+used to match installs to ads there. Everywhere, personalized advertising from this data is
+switched off. On iPhone, Google's on-device conversion measurement matches installs on the
+device without the advertising identifier. See
+<a href="https://firebase.google.com/support/privacy">Firebase's privacy information</a>.</p>
 <p><strong>Purchases:</strong> Apple App Store or Google Play processes payment. The app receives
 product and transaction information needed to finish a purchase and restore ownership, and
 keeps an ad-removal status on your device. I do not receive your payment-card details through
