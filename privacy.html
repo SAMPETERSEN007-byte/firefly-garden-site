@@ -16,7 +16,9 @@
   <h1>Your garden, your data, your choices.</h1>
   <p class="lede">Your progress stays on your device, and no Firefly Garden account is required.
   The game uses PostHog for usage analytics, with a sharing switch in Settings. Version 1.1
-  adds Google AdMob ads and optional purchases through Apple or Google.</p>
+  adds Google AdMob ads and optional purchases through Apple or Google. Version 1.1.2 adds
+  Google Analytics for Firebase and Tenjin, which measure which ads bring players to the game.
+  They only run for adults who share usage.</p>
   <p class="stamp">Effective 25 September 2026 · covers version 1.0 (build 5 onward) and version 1.1 on iOS and Android</p>
 </header>
 
@@ -27,7 +29,9 @@
   that is not linked to your name, your email address or any account. Phones set to a region
   in the EU, the EEA or the UK are asked first; phones set to any other region start with
   sharing on. Either way, the <strong>Share usage statistics</strong> switch in Settings turns
-  it off, and it stops straight away.</p>
+  it off, and it stops straight away. From version 1.1.2 the same switch also controls Google
+  Analytics for Firebase and Tenjin, which tell me which ads bring players to the game. Neither
+  runs for players under 18 or whose age is not known.</p>
 </div>
 
 <h2>Ads and purchases in version 1.1</h2>
@@ -50,18 +54,52 @@ Google's SDK sends its data using HTTPS/TLS. See
 <a href="https://developers.google.com/admob/ios/privacy/data-disclosure">Google's iOS SDK data disclosures</a> and <a href="https://developers.google.com/admob/android/privacy/play-data-disclosure">Android SDK data disclosures</a>
 for Google's processing and controls. Google controls the retention of data it receives;
 removing this app does not itself delete data already held by Google.</p>
-<p><strong>Google Analytics for Firebase (install measurement):</strong> From the next version,
-the game includes Google's Firebase SDK so that installs can be matched to the ads that led to
-them. It is off when the app starts and only turns on for players who chose an adult age range
-<em>and</em> have <strong>Share usage statistics</strong> on; for players under 18 or whose age
-is not known it never turns on, and turning the switch off turns it off again. While on, it sends
-Google an app-instance ID, the app version, device and OS type, first-open and session events,
-and your IP address (which can estimate approximate location). In the EU, the EEA and the UK,
-your agreement covers usage measurement only: advertising consent stays off, so the data is not
-used to match installs to ads there. Everywhere, personalized advertising from this data is
-switched off. On iPhone, Google's on-device conversion measurement matches installs on the
-device without the advertising identifier. See
-<a href="https://firebase.google.com/support/privacy">Firebase's privacy information</a>.</p>
+<p><strong>Google Analytics for Firebase (install measurement):</strong> From version 1.1.2 on
+iOS, and in the Android release that follows it, the game includes Google's Firebase SDK so that
+installs can be matched to the ads that led to them. It is off when the app starts and only turns
+on for players who chose an adult age range <em>and</em> have <strong>Share usage statistics</strong>
+on; for players under 18 or whose age is not known it never turns on, and turning the switch off
+turns it off again. While on, it sends Google an app-instance ID, the app version, device and OS
+type, first-open, session, engagement and update events, and your IP address (which can estimate
+approximate location). It also sends an identifier for your device: on iPhone the ID for vendors,
+plus the advertising identifier if you allow tracking; on Android the advertising ID, and it can
+also collect the Android ID. It can also record a purchase of Remove Ads or a tip, with the
+product, its price and its currency, and the AdMob ads you see and tap. The game itself sends
+Firebase no events of its own, no age range and no user ID. In the EU, the EEA and the UK, your
+agreement covers usage measurement only: advertising consent stays off, so the advertising
+identifier is not read and the data is not used to match installs to ads there. Everywhere,
+personalized advertising from this data is switched off. On iPhone, Google's on-device conversion
+measurement matches installs on the device without the advertising identifier, and the game never
+gives it your email address or phone number. See
+<a href="https://firebase.google.com/support/privacy">Firebase's privacy information</a> and
+<a href="https://policies.google.com/technologies/partner-sites">how Google uses information from
+apps that use its services</a>.</p>
+<p><strong>Tenjin (install attribution):</strong> From version 1.1.2 on iOS, and in the Android
+release that follows it, the game also includes the SDK of Tenjin, Inc., an attribution service.
+I advertise the game on several networks, such as Apple, Google, Meta and TikTok, and each one
+can count the same install as its own. Tenjin gives me one neutral count of which ad brought each
+install, and whether those players were still playing a week later, so that ad money goes where
+players actually stay. It follows the same rule as Firebase: it only starts for players who chose
+an adult age range <em>and</em> have <strong>Share usage statistics</strong> on; for players under
+18 or whose age is not known it never starts, and turning the switch off turns it off again. In
+the EU, the EEA and the UK it also follows the answer you gave Google's consent form, and stays
+off if that answer does not allow storing information on your device. On iPhone, and on Android
+phones set to those regions, its first report waits for the permission questions at the end of
+the practice, so that it carries your answers to them.
+While on, each time the game opens it tells Tenjin that the app was installed and opened, with a
+random ID that Tenjin's SDK creates, your IP address, the app's bundle identifier and version, the
+SDK version, the device type and model, the operating system and its version, your language,
+country setting and time zone, whether ad tracking is limited, and the answers your consent form
+stored where it was shown. On iPhone it adds the ID for vendors, your answer to Apple's tracking
+question, the advertising identifier only if you allow tracking, and Apple's attribution token for
+Apple Search Ads. On Android it adds the advertising ID, the app set ID, the Google Play install
+referrer, the device maker, the screen size, your mobile carrier and the connection type. To find
+the ad, Tenjin compares this with what the ad networks know about who saw or tapped an ad, for
+example by asking them about the advertising identifier. On iPhone, Apple also sends Tenjin a copy
+of its SKAdNetwork install reports, which carry no device identifier. The game sends Tenjin no
+game events, no purchases, no age range and no user ID. Tenjin processes this data for me, so
+questions and deletion requests come to me at the address below. See
+<a href="https://tenjin.com/privacy/">Tenjin's privacy policy</a>.</p>
 <p><strong>Purchases:</strong> Apple App Store or Google Play processes payment. The app receives
 product and transaction information needed to finish a purchase and restore ownership, and
 keeps an ad-removal status on your device. I do not receive your payment-card details through
@@ -168,8 +206,8 @@ look up a location from it, and I do not use it to identify anyone.</p>
 
 <h2>Who receives it</h2>
 <p><strong>PostHog, Inc.</strong>, the product analytics service I use, is the only company
-the game sends usage events to. Events go to PostHog's US cloud at <code>us.i.posthog.com</code>
-and are stored in the United States. Ads and the Daily Glow's date check are described above.</p>
+the game sends the events listed above to. Events go to PostHog's US cloud at <code>us.i.posthog.com</code>
+and are stored in the United States. Ads, install measurement and the Daily Glow's date check are described above.</p>
 <p>PostHog handles this data for me as a service provider. Under the U.S. privacy-law
 addendum in its <a href="https://posthog.com/privacy">privacy policy</a>, which applies as soon
 as it starts processing data for me, PostHog may use or disclose that personal information
