@@ -9,15 +9,21 @@
 <link rel="stylesheet" href="../style.css">
 <script>
   // One link for bios and ads: phones go straight to their store, everything else to the site.
+  // /get?src=fbreels tags the install by where the tap came from: App Store Connect's campaign link (pt is the
+  // provider token from its campaign generator, ct the campaign) and Play's install referrer (utm_source).
   (function () {
-    var APP_STORE = 'https://apps.apple.com/app/id6807141948';
-    var PLAY = null; // set to the Play listing when the Android app is in production
+    var m = /[?&]src=([a-z0-9_-]{1,40})(?:&|$)/i.exec(location.search);
+    var src = m ? m[1].toLowerCase() : '';
+    var APP_STORE = 'https://apps.apple.com/app/apple-store/id6807141948?pt=128685847&mt=8' + (src ? '&ct=' + src : '');
+    var PLAY = null; // 'https://play.google.com/store/apps/details?id=com.sampetersen.fireflygarden' once the listing is public
     var HOME = 'https://fireflygarden.app/';
     var ua = navigator.userAgent || '';
     var iPadAsMac = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1;
     var target = HOME;
     if (/iPhone|iPad|iPod/.test(ua) || iPadAsMac) target = APP_STORE;
-    else if (/Android/.test(ua) && PLAY) target = PLAY;
+    else if (/Android/.test(ua) && PLAY) {
+      target = PLAY + (src ? '&referrer=' + encodeURIComponent('utm_source=' + src + '&utm_medium=social') : '');
+    }
     location.replace(target);
   })();
 </script>
